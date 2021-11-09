@@ -1,11 +1,12 @@
 import sys
 import os
+import click
 
 import psycopg2
 from sqlalchemy import create_engine
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+#sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import logging
 
 from configparser import ConfigParser
@@ -25,6 +26,20 @@ def db_connect():
         logging.error(f'{error}')
     return conn
 
+@click.command()
+@click.option('--script-path', help='path of the sql script')
+def read_sql(script_path:str)->str:
+    try:
+        with open(script_path, "r") as f:
+            sql = f.read()
+        click.echo(sql)
+        return sql
+    except Exception as err:
+        click.echo(f"{err}")
+        return None
 
-def load_data():
-    pass
+
+if __name__ == "__main__":
+    sql = read_sql()
+    print(sql)
+    
