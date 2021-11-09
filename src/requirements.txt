@@ -2,3 +2,4 @@ greenlet
 pandas
 postgres
 SQLAlchemy
+click
