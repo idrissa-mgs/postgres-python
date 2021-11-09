@@ -2,6 +2,7 @@ version: '3.5'
 services:
 
   postgres_db:
+    container_name: pg_db
     image: postgres
     environment:   # Set up postgres database name and password
       POSTGRES_PASSWORD: password
@@ -13,11 +14,15 @@ services:
       - app-tier
 
   python_app:
+    container_name: python_app
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
       - postgres_db
+    volumes:
+      - $PWD/data:/home/data
+      - $PWD/src:/src
     networks:
       - app-tier
     command:

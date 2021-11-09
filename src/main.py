@@ -21,3 +21,4 @@ def build_df(dico_data=players):
 
 if __name__== "__main__":
     db_connect()
+    print("hello")
