@@ -26,8 +26,7 @@ def db_connect():
         logging.error(f'{error}')
     return conn
 
-@click.command()
-@click.option('--script-path', help='path of the sql script')
+
 def read_sql(script_path:str)->str:
     try:
         with open(script_path, "r") as f:
@@ -37,9 +36,3 @@ def read_sql(script_path:str)->str:
     except Exception as err:
         click.echo(f"{err}")
         return None
-
-
-if __name__ == "__main__":
-    sql = read_sql()
-    print(sql)
-    
