@@ -1,4 +1,7 @@
-SELECT stats_date AS date, customer_id,count(*) AS nb_orders,sum(price+freight_value) AS money_spent
+SELECT stats_date AS date, 
+customer_id, 
+COUNT(*) AS nb_orders,
+SUM(price+freight_value) AS money_spent
 FROM e_commerce.orders
 INNER JOIN 
 e_commerce.items

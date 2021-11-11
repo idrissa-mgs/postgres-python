@@ -1,5 +1,3 @@
-CREATE SCHEMA IF NOT EXISTS e_commerce;
-
 CREATE TABLE IF NOT EXISTS e_commerce.customers(
     customer_id              VARCHAR(32) NOT NULL,
     customer_unique_id      VARCHAR(32),
@@ -59,9 +57,6 @@ CREATE TABLE IF NOT EXISTS e_commerce.items(
     shipping_limit_date timestamp,
     price REAL,
     freight_value REAL,
-    -- CONSTRAINT fk_product
-    -- FOREIGN KEY(product_id) 
-    --    REFERENCES e_commerce.products(product_id) ON DELETE CASCADE
     CONSTRAINT fk_order
-        FOREIGN KEY(order_id) REFERENCES e_commerce.orders(orders_id)
-;
+        FOREIGN KEY(order_id) REFERENCES e_commerce.orders(orders_id) ON DELETE CASCADE
+);

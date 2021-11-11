@@ -8,7 +8,7 @@ import click
 from main import engine
 
 
-from db.db_function import  db_connect, read_sql
+from db.db_function import  db_connect, read_sql, db_params
 
 
 
@@ -68,13 +68,14 @@ def read_and_process_data():
 
 def create_tables():
     create_stat = read_sql("src/db/create_db.sql")
+    print(create_stat)
     conn = db_connect()
     cur = conn.cursor()
+    cur.execute('CREATE SCHEMA IF NOT EXISTS e_commerce;')
     cur.execute(create_stat)
     conn.close()
 
 def load_tables():
-
     tables_df_dict = read_and_process_data()
     for table in ["customers","products", "orders","items"]:
         df = tables_df_dict[table]

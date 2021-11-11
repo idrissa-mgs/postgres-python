@@ -12,15 +12,20 @@ import logging
 from configparser import ConfigParser
 
 
+
+db_params = {"host":"pg_db",
+            "database":os.environ["DB_NAME"],
+            "user":os.environ["DB_USER"],
+            "password":os.environ["DB_PASSWORD"]
+            }
+
 def db_connect():
     conn = None
     try: 
         conn = psycopg2.connect(
-            host="pg_db",
-            database=os.environ["DB_NAME"],
-            user=os.environ["DB_USER"],
-            password=os.environ["DB_PASSWORD"]
+            db_params
         )
+        conn.autocommit = True
         print("CONNECTION TO THE DATABASE SUCCESS")
     except (Exception, psycopg2.DatabaseError) as error:
         logging.error(f'{error}')
