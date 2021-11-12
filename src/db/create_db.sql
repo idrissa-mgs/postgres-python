@@ -38,16 +38,6 @@ CREATE TABLE IF NOT EXISTS e_commerce.products(
     PRIMARY KEY (product_id)
 );
 
-CREATE TABLE IF NOT EXISTS e_commerce.items(
-    order_id  VARCHAR(32) NOT NULL,
-    order_item_id  VARCHAR(10),
-    product_id  VARCHAR(32) NOT NULL,
-    seller_id  VARCHAR(32) NOT NULL,
-    shipping_limit_date timestamp,
-    price REAL,
-    freight_value REAL
-);
-
 
 CREATE TABLE IF NOT EXISTS e_commerce.items(
     order_id  VARCHAR(32) NOT NULL,

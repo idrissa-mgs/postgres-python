@@ -1,6 +1,6 @@
 FROM python:3.8
 ENV DB_PASSWORD="password"
-ENV DB_NAME="freetomove"
+ENV DB_NAME="my_posgre_db"
 ENV DB_USER='master'
 ENV PATH="${PATH}:/root/.local/bin"
 
