@@ -24,7 +24,7 @@ def is_date(string_date, fuzzy=False):
     """
     try: 
         parse(string_date, fuzzy=fuzzy)
-        click.echo(string_date)
+        #click.echo(string_date)
         return True
 
     except ValueError:

@@ -7,7 +7,6 @@ CREATE TABLE IF NOT EXISTS e_commerce.customers(
     PRIMARY KEY (customer_id) 
 );
 
-
 CREATE TABLE IF NOT EXISTS e_commerce.orders(
     order_id  VARCHAR(32) NOT NULL,
     customer_id VARCHAR(32) NOT NULL,
@@ -23,7 +22,6 @@ CREATE TABLE IF NOT EXISTS e_commerce.orders(
             REFERENCES e_commerce.customers(customer_id) ON DELETE CASCADE
 );
 
-
 CREATE TABLE IF NOT EXISTS e_commerce.products(
     product_id  VARCHAR(32) NOT NULL,
     product_category_name VARCHAR(100) ,
@@ -37,7 +35,6 @@ CREATE TABLE IF NOT EXISTS e_commerce.products(
     product_category_name_english VARCHAR(100),
     PRIMARY KEY (product_id)
 );
-
 
 CREATE TABLE IF NOT EXISTS e_commerce.items(
     order_id  VARCHAR(32) NOT NULL,
