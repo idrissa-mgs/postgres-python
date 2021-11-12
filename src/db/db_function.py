@@ -23,7 +23,7 @@ def db_connect():
     conn = None
     try: 
         conn = psycopg2.connect(
-            db_params
+            **db_params
         )
         conn.autocommit = True
         print("CONNECTION TO THE DATABASE SUCCESS")

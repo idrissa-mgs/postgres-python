@@ -40,10 +40,10 @@ def get_stats(start_date, end_date):
         stats_date = start_date
         stats_sql = read_sql("src/db/stats.sql")
         if end_date == None:
-            query_part = f"={start_date} GROUP BY 1,2 ORDER BY money_spent;"
+            query_part = f"='{start_date}' GROUP BY 1,2 ORDER BY money_spent;"
         elif is_date(end_date):
-            query_part = f"BETWEEN {start_date} AND {end_date} GROUP BY 1,2 ORDER BY money_spent;" 
-            #stats_date = f'{start_date}, {end_date}'
+            query_part = f"BETWEEN '{start_date}' AND '{end_date}' GROUP BY 1,2 ORDER BY money_spent;" 
+            #stats_date = f'{list}([{start_date}, {end_date}])'
     query = stats_sql.replace("stats_date", f"{stats_date}") + query_part
     click.echo(query)
     stats_df = pd.read_sql(query,con=conn)

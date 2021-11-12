@@ -22,7 +22,7 @@ services:
       - postgres_db
     volumes:
       - $PWD/data:/home/data
-      - $PWD/src:/src
+      - $PWD/src:/home/src
     networks:
       - app-tier
     command:

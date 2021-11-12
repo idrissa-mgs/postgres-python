@@ -5,7 +5,6 @@ ENV DB_USER='master'
 ENV PATH="${PATH}:/root/.local/bin"
 
 COPY src/requirements.txt requirements.txt
-COPY /src /home/src/
 
 RUN python -m pip install --upgrade pip
 
